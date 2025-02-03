@@ -5,7 +5,7 @@ FROM denoland/deno:1.42.1
 WORKDIR .
 
 # Prefer not to run as root.
-USER deno
+USER root
 
 
 # Copy the project files to the working directory
