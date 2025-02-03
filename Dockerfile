@@ -13,7 +13,6 @@ COPY ./main.ts .
 COPY ./deps.ts .
 COPY ./main_test.ts .
 COPY ./deno.json .
-COPY .env .
 
 # Expose the port that the application will run on
 EXPOSE 8000
