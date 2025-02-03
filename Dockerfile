@@ -1,6 +1,9 @@
 # Use the official Deno image as the base image
 FROM denoland/deno:1.42.1
 
+RUN apt update && \
+    apt install -y netcat-openbsd redis-tools && rm -rf /var/lib/apt/lists/*
+
 ARG REDIS_URL
 ENV REDIS_URL=${REDIS_URL}
 
