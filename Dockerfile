@@ -2,10 +2,18 @@
 FROM denoland/deno:1.42.1
 
 # Set the working directory
-WORKDIR /app
+WORKDIR .
+
+# Prefer not to run as root.
+USER deno
+
 
 # Copy the project files to the working directory
-COPY . .
+COPY ./main.ts .
+COPY ./deps.ts .
+COPY ./main_test.ts .
+COPY ./deno.json .
+COPY .env .
 
 # Expose the port that the application will run on
 EXPOSE 8000
