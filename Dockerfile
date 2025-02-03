@@ -18,4 +18,4 @@ COPY ./deno.json .
 EXPOSE 8000
 
 # Run the Deno application
-CMD ["run", "--allow-net", "--allow-env", "main.ts"]
+CMD ["run", "--allow-net", "--allow-env", "--allow-read", "--allow-write", "--allow-run", "main.ts"]
