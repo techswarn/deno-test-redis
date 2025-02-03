@@ -10,7 +10,6 @@ USER root
 
 # Copy the project files to the working directory
 COPY ./main.ts .
-COPY ./deps.ts .
 COPY ./main_test.ts .
 COPY ./deno.json .
 
