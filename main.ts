@@ -1,14 +1,9 @@
 import { createClient } from "npm:redis";
-
-// filepath: /path/to/app.ts
-import { config } from "./deps.ts";
-
-// Load environment variables
-const env = config();
+import "jsr:@std/dotenv/load";
 
 // Access the environment variables
-const redisUrl = env.REDIS_URL;
-const redisPassword = env.REDIS_PASSWORD;
+const redisUrl = Deno.env.get("REDIS_URL");
+const redisPassword = Deno.env.get("REDIS_PASSWORD");
 
 console.log(`Redis URL: ${redisUrl}`);
 console.log(`Redis Password: ${redisPassword}`);
