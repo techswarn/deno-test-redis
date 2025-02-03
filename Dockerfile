@@ -1,6 +1,11 @@
 # Use the official Deno image as the base image
 FROM denoland/deno:1.42.1
 
+ARG REDIS_URL
+ENV REDIS_URL=${REDIS_URL}
+
+ARG REDIS_PASSWORD
+ENV REDIS_PASSWORD=${REDIS_PASSWORD}
 # Set the working directory
 WORKDIR .
 
