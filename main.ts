@@ -12,8 +12,22 @@ const client = await createClient({
                 url: `${redisUrl}`
               }).on('error', err => console.log('Redis Client Error', err)).connect();
 
-await client.set('foo', 'bar');
-const value = await client.get('key');
-console.log(value)
-await client.disconnect();
+
+const connect = async () => {
+  try {
+    await client.connect();
+    console.info("Redis connection established");
+    await client.set('foo', 'bar');
+    const value = await client.get('key');
+    console.log(value)
+    await client.disconnect();
+  } catch (error) {
+    console.error("Failed to connect to Redis", error);
+    console.warn("continuing without Redis");
+  }
+}
+
+connect()
+
+
 
