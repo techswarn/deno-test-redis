@@ -22,6 +22,7 @@ const connect = async () => {
   } catch (error) {
     console.error("Failed to connect to Redis", error);
     console.warn("continuing without Redis");
+    await client.disconnect();
   }
 }
 
