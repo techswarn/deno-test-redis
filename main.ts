@@ -8,17 +8,13 @@ const redisPassword = Deno.env.get("REDIS_PASSWORD");
 console.log(`Redis URL: ${redisUrl}`);
 console.log(`Redis Password: ${redisPassword}`);
 
-const client = await createClient({
-                url: `${redisUrl}`
-              }).on('error', err => console.log('Redis Client Error', err)).connect();
-
-
+const client = await createClient({url: `${redisUrl}`})
 const connect = async () => {
   try {
     await client.connect();
     console.info("Redis connection established");
     await client.set('foo', 'bar');
-    const value = await client.get('key');
+    const value = await client.get('foo');
     console.log(value)
     await client.disconnect();
   } catch (error) {
